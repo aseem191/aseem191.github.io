@@ -1,0 +1,43 @@
+<html>
+
+<head>
+	<title>Aseem Sane</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="personalstyle.css">
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script>
+	$(document).ready(function(){
+	  $("#contactme").hide();
+	  $("#contactme").animate({ opacity: 0 }, 0);
+	  $("#contactme").slideDown(0).animate({ opacity: 1 }, { duration: 400, queue: false });
+  	})
+	</script>
+</head>
+<body style="background-image: url('dolomitealps.jpg');">
+	<div class="navbar navbar-inverse navbar-fixed-left">
+		<div class="container main-title"><img src="aseemsane.png" height="250px" width="250px"></div>
+
+		<div class="nav-links">
+			<div class="hover"><a class="row" href="index.html">About Me</a></div>
+			<div class="hover"><a class="row" href="projects.html">Projects</a></div>
+			<div class="hover"><a class="row" href="#contactme">Personal Info</a></div>
+			<div class="hover"><a class="row" href="resume.html">Resume</a></div>
+		</div>
+	</div>
+	<div class="content" style="margin-left: 350px">
+		<section id="contactme">
+			<p><br><br><br></p>
+			<div class="container"><div class="col-md-8" style="text-align: center"><h1>Personal Information</h1></div></div>
+			<p><br></p>
+			<div class="col-md-11" style="text-align: center">
+			<p class="displayp">
+				Email: aseem.adm@gmail.com<br>
+				GitHub: <a href="https://github.com/aseem191">aseem191</a><br>
+				LinkedIn: <a href="https://www.linkedin.com/in/aseem-sane/">Aseem Sane</a>
+			</p></div><p><br><br><br><br></p>
+		</section>
+
+	</div>
+</body>
+</html>
