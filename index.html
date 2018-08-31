@@ -2,42 +2,94 @@
 
 <head>
 	<title>Aseem Sane</title>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
 	<link rel="stylesheet" href="personalstyle.css">
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script>
-		$("#aboutme").hide();
-	$(document).ready(function(){
-	  $("#aboutme").hide();
-	  $("#aboutme").animate({ opacity: 0 }, 0);
-	  $("#aboutme").slideDown(0).animate({ opacity: 1 }, { duration: 600, queue: false });
-  	})
+		$(document).ready(function(){
+	  		$("#aboutme").hide();
+	  		$("#aboutme").animate({ opacity: 0 }, 0);
+	  		$("#aboutme").slideDown(0).animate({ opacity: 1 }, { duration: 600, queue: false });
+
+	  		$(".mylink").click(function() {
+	  			$([document.documentElement, document.body]).animate({
+					scrollTop: $($(this).data("tolink")).offset().top
+				}, 1500);
+				return false;
+			});
+  		})
 	</script>
 </head>
-<body style="background-image: url('dolomitealps.jpg');">
-	<div class="navbar navbar-inverse navbar-fixed-left">
-		<div class="container main-title"><img src="aseemsane.png" height="250px" width="250px"></div>
+<body style="background-color: #4286f4; height:600%;">
+	
+	<div class="container-fluid" style="text-align: center">
+		<div class="row h-100">
+			<div class="col-sm-2" style="background-color: #000000;">
+				<div style="position: fixed;">
+					<br><br>
+					<h1 style="color: white">Aseem Sane</h1>
+					<br><br>
+					<div class="mylink" data-tolink="#aboutme">
+						<p style="padding-top: 15px;">About Me</p>
+					</div>
+					<br>
+					<div class="mylink" data-tolink="#projects">
+						<p style="padding-top: 15px;">Projects</p>
+					</div>
+					<br>
+					<div class="mylink" data-tolink="#personalinfo">
+						<p style="padding-top: 15px;">Personal Links</p>
+					</div>
+					<br>
+					<div class="mylink" data-tolink="#resume">
+						<p style="padding-top: 15px;">Resume</p>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-1">
+			</div>
+			<div class="col-sm-8" style="background-color: #ffffff;">
+				<br><br><br><br><br><br><br><br>
+				<h1>Hi! I'm Aseem.</h1>
+				<p id="aboutme">
+				I'm an undergraduate student at UCLA studying Computer Science and Engineering. I find great joy in immersing myself in the world of computing and constantly learning more about how computers function. Through my forays with languages such as C++, Javascript, and Python, I have found great satisfaction in the combination of learning and doing at the same time. I would like to gain more experience in solving different problems so I can tackle even more problems in the future. 
+				</p>
+				<div id="projects">
+					<h1>Projects</h1>
+					<div class="row">
+						<div class="col-md" style="text-align: center">
+							<h2>Rocket Project at UCLA</h2>
+							<img src="interfacebox.jpg" height="200px">
+							<p>
+							<br>I work on the electronics team as part of the communications sub-team. I have worked with the Python data visualization libraries,
+							 TCP and UDP connections, Raspberry Pis, and radios. The team website is located <a href="https://rocketprojectatucla.squarespace.com/">here</a>.</p>
+						</div>
+						<div class="col-md" style="text-align: center">
+							<h2>ThinkTank</h2>
+							<img src="thinktankscreen.PNG" height="200px">
+							<p><br>This game is made in Unity, and involves survival against waves of enemies that increase in number. You can find the game <a href="https://github.com/aseem191/thinktankunitygame">here.</a></p>
 
-		<div class="nav-links">
-			<div class="hover"><a class="row" href="#aboutme">About Me</a></div>
-			<div class="hover"><a class="row" href="projects.html">Projects</a></div>
-			<div class="hover"><a class="row" href="personalinfo.html">Personal Info</a></div>
-			<div class="hover"><a class="row" href="resume.html">Resume</a></div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md" style="text-align: center">
+							<h2>VEX Robotics</h2>
+							<img src="dynobytes.png" height="200px">
+							<br><p>
+							I worked as a programming and electronics lead to manage and build the movement, sensors, control, and autonomous systems of the robot. I was part of team #7579 DynoBytes, and we qualified for multiple state championships.</p><br>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-1">
+			</div>
 		</div>
-	</div>
-	<div class="content" style="margin-left: 350px" id="aboutme">
-		<section>
-			<p><br><br><br></p>
-			<div class="container"><div class="col-md-8" style="text-align: center"><h1>About Me</h1></div></div>
-			<p><br></p>
-			<div class="col-md-11" style="text-align: center">
-			<p class="displayp">
-			I am Aseem Sane, an undergraduate student at UCLA studying Computer Science and Engineering. I find great joy in immersing myself in the world of computing and constantly learning more about how computers function. Through my forays with languages such as C++, Javascript, and Python, I have found great satisfaction in the combination of learning and doing at the same time. I would like to gain more experience in solving different problems so I can tackle even more problems in the future. 
-			</p></div><p><br><br><br><br></p>
-		</section>
 		
-
 	</div>
 </body>
 </html>
