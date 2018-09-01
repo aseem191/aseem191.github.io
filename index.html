@@ -17,6 +17,8 @@
 			var buttonPressed = false;
 			var triggeredAboutMe = false;
 			var triggeredProjects = false;
+			var triggeredPersonalInfo = false;
+			var triggeredResume = false;
 
 			$("html, body").bind("scroll mousedown DOMMouseScroll mousewheel keyup", function(){
 				buttonPressed = false;
@@ -26,6 +28,9 @@
 	  		$("#greeting").hide();
 	  		$('#aboutme').css('visibility', 'hidden');
 	  		$('#projects').css('visibility', 'hidden');
+	  		$('#personalinfo').css('visibility', 'hidden');
+	  		$('#resume').css('visibility', 'hidden');
+
 	  		$("#greeting").animate({ opacity: 0 }, 0);
 	  		$("#greeting").slideDown(0).animate({ opacity: 1 }, { duration: 600, queue: false });
 
@@ -52,19 +57,29 @@
 			});
 
 			$(window).scroll(function() {
-				var triggerAboutMeHeight = $("#aboutme").height();
-				var triggerProjectsHeight = $("#projects").height();
+				var triggerAboutMeHeight = $("#aboutme").position().top - 600;
+				var triggerProjectsHeight = $("#projects").position().top - 600;
+				var triggerPersonalInfoHeight = $("#personalinfo").position().top - 700;
+				var triggerResumeHeight = $("#resume").position().top - 600;
 
 				if (triggeredAboutMe == false && $(window).scrollTop() >= triggerAboutMeHeight) {
 					triggeredAboutMe = true;
-					//$('#aboutme').css('opacity', 0).slideDown('slow').animate({ opacity: 1 }, { queue: false, duration: 'slow' });
-					$('#aboutme').css('visibility', 'visible').hide().fadeIn(1300);
+					$('#aboutme').css('visibility', 'visible').hide().fadeIn(800);
 				}
 
 				if (triggeredProjects == false && $(window).scrollTop() >= triggerProjectsHeight) {
 					triggeredProjects = true;
-					//$('#aboutme').css('opacity', 0).slideDown('slow').animate({ opacity: 1 }, { queue: false, duration: 'slow' });
-					$('#projects').css('visibility', 'visible').hide().fadeIn(2500);
+					$('#projects').css('visibility', 'visible').hide().fadeIn(800);
+				}
+
+				if (triggeredPersonalInfo == false && $(window).scrollTop() >= triggerPersonalInfoHeight) {
+					triggeredPersonalInfo = true;
+					$('#personalinfo').css('visibility', 'visible').hide().fadeIn(800);
+				}
+
+				if (triggeredResume == false && $(window).scrollTop() >= triggerResumeHeight) {
+					triggeredResume = true;
+					$('#resume').css('visibility', 'visible').hide().fadeIn(800);
 				}
 
 				if(!buttonPressed){
@@ -74,7 +89,7 @@
   		})
 	</script>
 </head>
-<body style="background-image: url('bgimage.png'); background-position: center; height:900%;">
+<body style="background-image: url('bgimage.png'); background-position: center; height:1000%;">
 	
 	<div class="container-fluid" style="text-align: center">
 		<div class="row h-100">
@@ -114,28 +129,74 @@
 					<br><br><br>
 					<h1>About Me</h1>
 					<br><br><br>
-					<p style="padding-left: 45px; padding-right: 45px;">
-					I'm an undergraduate student at UCLA studying Computer Science and Engineering. I find great joy in immersing myself in the world of computing and constantly learning more about how computers function. To me, computer science provides some of the most fulfilling experiences - whether it's by creating or contributing to an app, finally surmounting a technical challenge that I've been hammering at for days, or just learning a new concept that gets me ever closer to understanding just <i>how</i> these machines work. I am currently working on growing my full stack skills through my various projects.
+					<p style="padding-left: 50px; padding-right: 50px;">
+					I'm an undergraduate student at UCLA studying Computer Science and Engineering. To me, computer science provides some of the most fulfilling experiences - whether it's by creating or contributing to an application, finally surmounting a technical challenge that I've been hammering at for days, or just learning a new concept that gets me ever closer to understanding just how these machines work. I enjoy immersing myself in the world of computing, and I am excited to see what the future of computing will hold.
 					<br><br><br>
-					Outside the world of computer science, I enjoy playing video games, playing the tabla (a type of hand drum), daydreaming, creating interesting recipes, and juggling.
+					I am currently working on growing my full stack skills through my various projects. Outside the realm of computer science, I enjoy playing video games, playing the tabla (a type of hand drum), creating interesting recipes, juggling, and daydreaming.
 					</p>
 				</div>
 
 
-				<div id="projects" style="padding-left: 15px; padding-right: 15px;">
+				<div id="projects" style="padding-left: 50px; padding-right: 50px;">
 					<br><br>
-					<h1>Projects</h1>
+					<h1>My Projects</h1>
+					<br><br><br>
+					<div class="row">
+						<div class="col-md" style="text-align: center">
+							<h2>Fridgehunters</h2><br>
+							<img src="fridgehunters.PNG" height="200px">
+							<p><br>
+								Fridgehunters allows users to find recipes easily by listing ingredients that they have in their fridge! The app can be found at <a href="https://fridgehunters.now.sh/">fridgehunters.now.sh</a>.<br><br>
+								The app features an ingredient search system, a recipe search system based on ingredients, and an endorsement and popularity system for recipes. For this app, I developed an Express.js REST API backend with an SQL database and a React frontend.
+							</p>
+						</div>
+						<div class="col-md-1" style="text-align: center">
+						</div>
+						<div class="col-md" style="text-align: center">
+							<h2>Quoridor React</h2><br>
+							<img src="quoridorreact.PNG" height="200px">
+							<p><br>
+								Quoridor React is a recreation of the board game Quoridor as an online multiplayer game, with a strategy uncovering twist! The game can be found at <a href="https://reactquoridor.now.sh/">reactquoridor.now.sh</a>.<br><br>
+								The game features client-side game UI and display, server-side game management, and automatic detection of strategies that the other player may be trying to use. I developed this app using an Express.js REST API backend with a MongoDB database and a React frontend with Redux state management.
+							</p>
+
+						</div>
+					</div>
 					<br><br>
 					<div class="row">
 						<div class="col-md" style="text-align: center">
-							<h2>Rocket Project at UCLA</h2>
+							<h2>Now Where Was I?</h2><br>
+							<img src="nowwherewasi.PNG" height="200px">
+							<p><br>
+								Now Where Was I? is an app designed to help those who have entered a new room and suddenly forgotten what they were going to do. The app can be found at <a href="https://aseem191.github.io/Now-Where-Was-I/">aseem191.github.io/Now-Where-Was-I</a>.<br><br>
+								The app features searching for and creation of realizations based on time and place. I built this app using jQuery for the frontend and the Spring Boot model/controller framework in Java for the backend, with a PostgreSQL database.
+							</p>
+						</div>
+						<div class="col-md-1" style="text-align: center">
+						</div>
+						<div class="col-md" style="text-align: center">
+							<h2>Foodmeet</h2><br>
+							<img src="foodmeet.PNG" height="200px">
+							<p><br>
+								This Android app is built to allow people decide where they want to eat, and with whom. The repository for this app can be found <a href="https://github.com/aseem191/Foodmeet">here</a>.<br><br>
+								The app features user creation, user schedules and timing, user groups, user decision on which group they want to eat with, and group voting on which place to eat at. I developed this app using Android Studio in Java, and built the backend API using Express.js, with an SQL database.
+							</p>
+
+						</div>
+					</div>
+					<br><br>
+					<div class="row">
+						<div class="col-md" style="text-align: center">
+							<h2>Rocket Project at UCLA</h2><br>
 							<img src="interfacebox.jpg" height="200px">
 							<p>
 							<br>I work on the electronics team as part of the communications sub-team. I have worked with the Python data visualization libraries,
-							 TCP and UDP connections, Raspberry Pis, and radios. The team website is located <a href="https://rocketprojectatucla.squarespace.com/">here</a>.</p>
+							 TCP and UDP connections, Raspberry Pis, and radios. The team website is located <a href="http://rocketproject.seas.ucla.edu/">here</a>.</p>
+						</div>
+						<div class="col-md-1" style="text-align: center">
 						</div>
 						<div class="col-md" style="text-align: center">
-							<h2>ThinkTank</h2>
+							<h2>ThinkTank</h2><br>
 							<img src="thinktankscreen.PNG" height="200px">
 							<p><br>This game is made in Unity, and involves survival against waves of enemies that increase in number. You can find the game <a href="https://github.com/aseem191/thinktankunitygame">here.</a></p>
 
@@ -143,13 +204,21 @@
 					</div>
 					<br><br>
 					<div class="row">
+						<div class="col-md-3" style="text-align: center">
+						</div>
 						<div class="col-md" style="text-align: center">
-							<h2>VEX Robotics</h2>
+							<h2>VEX Robotics</h2><br>
 							<img src="dynobytes.png" height="200px">
-							<br><p>
-							I worked as a programming and electronics lead to manage and build the movement, sensors, control, and autonomous systems of the robot. I was part of team #7579 DynoBytes, and we qualified for multiple state championships.</p><br>
+							<br><p><br>
+							I was the programming and electronics lead for my team. I helped build and manage the movement, sensors, control, and autonomous systems of the robot.</p><br>
+						</div>
+						<div class="col-md-3" style="text-align: center">
 						</div>
 					</div>
+
+					<p style="color: white">
+					_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _  _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _  _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _  _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _  _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+					</p>
 				</div>
 
 
@@ -157,12 +226,12 @@
 					<br><br><br>
 					<h1>My Personal Information</h1>
 					<br><br><br>
-					<p style="padding-left: 45px; padding-right: 45px;">
-					Email: aseem.adm@gmail.com
+					<p style="padding-left: 45px; padding-right: 45px; font-size: 18px">
+					<b>Email:</b> <a href="mailto:aseem.adm@gmail.com">aseem.adm@gmail.com</a>
 					<br><br>
-					GitHub: <a href="https://github.com/aseem191">aseem191</a>
+					<b>GitHub:</b> <a href="https://github.com/aseem191">aseem191</a>
 					<br><br>
-					LinkedIn: <a href="https://www.linkedin.com/in/aseem-sane/">Aseem Sane</a>
+					<b>LinkedIn:</b> <a href="https://www.linkedin.com/in/aseem-sane/">Aseem Sane</a>
 					<br><br></p>
 					<p style="color: white">
 					_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _  _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _  _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _  _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _  _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
@@ -174,7 +243,8 @@
 					<h1>My Resume</h1>
 					<br>
 					<p>
-						<iframe src="http://docs.google.com/gview?url=https://aseem191.github.io/Aseemresumeyear2.pdf&embedded=true" style="width:718px; height:950px;" frameborder="0"></iframe>
+						<object data="Aseemresumeyear2.pdf" type="application/pdf" style="width: 700px; height: 900px;">
+						</object>
 						<br>
 						<a href="Aseemresumeyear2.pdf">Link to my resume</a>
 					</p>
