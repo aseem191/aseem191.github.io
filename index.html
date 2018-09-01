@@ -7,6 +7,8 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
+	<link href="https://fonts.googleapis.com/css?family=Oleo+Script|Oxygen|Patua+One|Prompt|Fira+Sans" rel="stylesheet">
+
 	<link rel="stylesheet" href="personalstyle.css">
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -18,6 +20,7 @@
 
 	  		$("#greeting").hide();
 	  		$('#aboutme').css('visibility', 'hidden');
+	  		$('#projects').css('visibility', 'hidden');
 	  		$("#greeting").animate({ opacity: 0 }, 0);
 	  		$("#greeting").slideDown(0).animate({ opacity: 1 }, { duration: 600, queue: false });
 
@@ -55,7 +58,7 @@
   		})
 	</script>
 </head>
-<body style="background-color: #4286f4; height:800%;">
+<body style="background-image: url('bgimage.png'); background-position: center; height:800%;">
 	
 	<div class="container-fluid" style="text-align: center">
 		<div class="row h-100">
@@ -63,7 +66,7 @@
 				<div id="fixedDiv" style="position: absolute;">
 					<br><br>
 					<h1 style="color: white">Aseem Sane</h1>
-					<br><br>
+					<br><br><br>
 					<div class="mylink" data-tolink="#aboutme">
 						<p style="padding-top: 15px;">About Me</p>
 					</div>
@@ -84,21 +87,24 @@
 			<div class="col-sm-1">
 			</div>
 			<div class="col-sm-8" style="background-color: #ffffff;">
-				<br><br><br><br><br><br><br><br>
-				<h1 id="greeting">Hi! I'm Aseem.</h1>
-
+				<br><br><br><br><br><br>
+				<div id="greeting">
+					<h1 style="font-size: 52px">Hi! I'm Aseem.</h1>
+					<br><br><br>
+					<img src="picofme.PNG" height="300px">
+				</div>
 
 				<div id="aboutme">
 					<br><br><br>
 					<h1>About Me</h1>
-					<br><br>
+					<br><br><br>
 					<p style="padding-left: 45px; padding-right: 45px;">
 					I'm an undergraduate student at UCLA studying Computer Science and Engineering. I find great joy in immersing myself in the world of computing and constantly learning more about how computers function. Through my forays with languages such as C++, Javascript, and Python, I have found great satisfaction in the combination of learning and doing at the same time. I would like to gain more experience in solving different problems so I can tackle even more problems in the future. 
 					</p>
 				</div>
 
 
-				<div id="projects">
+				<div id="projects" style="padding-left: 15px; padding-right: 15px;">
 					<h1>Projects</h1>
 					<br><br>
 					<div class="row">
@@ -129,6 +135,7 @@
 
 
 				<div id="personalinfo" style="text-align: left">
+					<br><br>
 					<h3>My Personal Information</h3>
 					<br><br>
 					<p class="displayp">
@@ -139,7 +146,8 @@
 				</div>
 
 				<div id="resume" style="text-align: left">
-					<h3>Resume</h3>
+					<br><br>
+					<h3>My Resume</h3>
 					<br>
 					<p>
 						<a href="Aseemresumeyear2.pdf">Link to my resume</a>

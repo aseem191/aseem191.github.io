@@ -7,11 +7,13 @@
 .mylink{
 	height: 60px;
 	background-color: #c6c6c6;
+	font-family: 'Oxygen', sans-serif;
+	font-size: 21px;
 }
 
 #aboutme{
 	position: absolute;
-	top: 100vh;
+	top: 110vh;
 }
 
 
@@ -29,4 +31,17 @@
 #resume{
 	position: absolute;
 	top: 700vh;
+}
+
+p{
+	font-family: 'Fira Sans', sans-serif;
+}
+
+h1, h3{
+	font-family: 'Patua One', cursive;
+}
+
+h2{
+	font-family: 'Prompt', sans-serif;
+	font-weight: bold;
 }
