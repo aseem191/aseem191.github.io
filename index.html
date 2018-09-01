@@ -7,7 +7,7 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
-	<link href="https://fonts.googleapis.com/css?family=Oleo+Script|Oxygen|Patua+One|Prompt|Fira+Sans" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Oleo+Script|Oxygen|Patua+One|Prompt|Fira+Sans|Salsa" rel="stylesheet">
 
 	<link rel="stylesheet" href="personalstyle.css">
 
@@ -17,6 +17,11 @@
 			var buttonPressed = false;
 			var triggeredAboutMe = false;
 			var triggeredProjects = false;
+
+			$("html, body").bind("scroll mousedown DOMMouseScroll mousewheel keyup", function(){
+				buttonPressed = false;
+				$('html, body').stop();
+			});
 
 	  		$("#greeting").hide();
 	  		$('#aboutme').css('visibility', 'hidden');
@@ -28,6 +33,17 @@
 	  			buttonPressed = true;
 	  			$([document.documentElement, document.body]).animate({
 					scrollTop: $($(this).data("tolink")).offset().top
+				}, 1500, function(){
+					buttonPressed = false;
+					$("#fixedDiv").css({top: $(window).scrollTop()});
+				});
+				return false;
+			});
+
+			$(".mainlink").click(function() {
+	  			buttonPressed = true;
+	  			$([document.documentElement, document.body]).animate({
+					scrollTop: $("#greeting").offset().top
 				}, 1500, function(){
 					buttonPressed = false;
 					$("#fixedDiv").css({top: $(window).scrollTop()});
@@ -65,7 +81,7 @@
 			<div class="col-sm-2" style="background-color: #000000;">
 				<div id="fixedDiv" style="position: absolute; margin-left: auto; margin-right: auto; left: 10px; right: 10px;">
 					<br><br>
-					<h1 style="color: white">Aseem Sane</h1>
+					<h1 style="color: white" id="aseemsane" class="mainlink">ASEEM SANE</h1>
 					<br><br><br>
 					<div class="mylink" data-tolink="#aboutme">
 						<p style="padding-top: 15px;">About Me</p>
@@ -87,11 +103,11 @@
 			<div class="col-sm-1">
 			</div>
 			<div class="col-sm-8" style="background-color: #ffffff;">
-				<br><br><br><br><br><br>
 				<div id="greeting">
+					<br><br><br><br><br><br>
 					<h1 style="font-size: 52px">Hi! I'm Aseem.</h1>
 					<br><br><br>
-					<img src="picofme.PNG" height="300px">
+					<img src="picofme.PNG" height="225px">
 				</div>
 
 				<div id="aboutme">
@@ -105,6 +121,7 @@
 
 
 				<div id="projects" style="padding-left: 15px; padding-right: 15px;">
+					<br><br>
 					<h1>Projects</h1>
 					<br><br>
 					<div class="row">

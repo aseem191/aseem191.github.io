@@ -6,9 +6,14 @@
 
 .mylink{
 	height: 60px;
+	width: 100%;
 	background-color: #c6c6c6;
 	font-family: 'Oxygen', sans-serif;
 	font-size: 21px;
+}
+
+.mainlink:hover{
+	cursor: pointer; 
 }
 
 #aboutme{
@@ -31,6 +36,12 @@
 #resume{
 	position: absolute;
 	top: 700vh;
+}
+
+#aseemsane{
+	font-family: 'Salsa', cursive;
+	font-size: 52px;
+	font-weight: bold;
 }
 
 p{
