@@ -13,7 +13,11 @@
 	<script>
 		$(document).ready(function(){
 			var buttonPressed = false;
+			var triggeredAboutMe = false;
+			var triggeredProjects = false;
+
 	  		$("#greeting").hide();
+	  		$('#aboutme').css('visibility', 'hidden');
 	  		$("#greeting").animate({ opacity: 0 }, 0);
 	  		$("#greeting").slideDown(0).animate({ opacity: 1 }, { duration: 600, queue: false });
 
@@ -29,6 +33,21 @@
 			});
 
 			$(window).scroll(function() {
+				var triggerAboutMeHeight = $("#aboutme").height();
+				var triggerProjectsHeight = $("#projects").height();
+
+				if (triggeredAboutMe == false && $(window).scrollTop() >= triggerAboutMeHeight) {
+					triggeredAboutMe = true;
+					//$('#aboutme').css('opacity', 0).slideDown('slow').animate({ opacity: 1 }, { queue: false, duration: 'slow' });
+					$('#aboutme').css('visibility', 'visible').hide().fadeIn(1300);
+				}
+
+				if (triggeredProjects == false && $(window).scrollTop() >= triggerProjectsHeight) {
+					triggeredProjects = true;
+					//$('#aboutme').css('opacity', 0).slideDown('slow').animate({ opacity: 1 }, { queue: false, duration: 'slow' });
+					$('#projects').css('visibility', 'visible').hide().fadeIn(2500);
+				}
+
 				if(!buttonPressed){
 					$("#fixedDiv").css({top: $(window).scrollTop()});
 				}
@@ -36,7 +55,7 @@
   		})
 	</script>
 </head>
-<body style="background-color: #4286f4; height:600%;">
+<body style="background-color: #4286f4; height:800%;">
 	
 	<div class="container-fluid" style="text-align: center">
 		<div class="row h-100">
@@ -54,7 +73,7 @@
 					</div>
 					<br>
 					<div class="mylink" data-tolink="#personalinfo">
-						<p style="padding-top: 15px;">Personal Links</p>
+						<p style="padding-top: 15px;">Personal Info</p>
 					</div>
 					<br>
 					<div class="mylink" data-tolink="#resume">
@@ -67,11 +86,21 @@
 			<div class="col-sm-8" style="background-color: #ffffff;">
 				<br><br><br><br><br><br><br><br>
 				<h1 id="greeting">Hi! I'm Aseem.</h1>
-				<p id="aboutme">
-				I'm an undergraduate student at UCLA studying Computer Science and Engineering. I find great joy in immersing myself in the world of computing and constantly learning more about how computers function. Through my forays with languages such as C++, Javascript, and Python, I have found great satisfaction in the combination of learning and doing at the same time. I would like to gain more experience in solving different problems so I can tackle even more problems in the future. 
-				</p>
+
+
+				<div id="aboutme">
+					<br><br><br>
+					<h1>About Me</h1>
+					<br><br>
+					<p style="padding-left: 45px; padding-right: 45px;">
+					I'm an undergraduate student at UCLA studying Computer Science and Engineering. I find great joy in immersing myself in the world of computing and constantly learning more about how computers function. Through my forays with languages such as C++, Javascript, and Python, I have found great satisfaction in the combination of learning and doing at the same time. I would like to gain more experience in solving different problems so I can tackle even more problems in the future. 
+					</p>
+				</div>
+
+
 				<div id="projects">
 					<h1>Projects</h1>
+					<br><br>
 					<div class="row">
 						<div class="col-md" style="text-align: center">
 							<h2>Rocket Project at UCLA</h2>
@@ -87,6 +116,7 @@
 
 						</div>
 					</div>
+					<br><br>
 					<div class="row">
 						<div class="col-md" style="text-align: center">
 							<h2>VEX Robotics</h2>
@@ -96,6 +126,27 @@
 						</div>
 					</div>
 				</div>
+
+
+				<div id="personalinfo" style="text-align: left">
+					<h3>My Personal Information</h3>
+					<br><br>
+					<p class="displayp">
+						Email: aseem.adm@gmail.com<br>
+						GitHub: <a href="https://github.com/aseem191">aseem191</a><br>
+						LinkedIn: <a href="https://www.linkedin.com/in/aseem-sane/">Aseem Sane</a>
+					</p>
+				</div>
+
+				<div id="resume" style="text-align: left">
+					<h3>Resume</h3>
+					<br>
+					<p>
+						<a href="Aseemresumeyear2.pdf">Link to my resume</a>
+					</p>
+				</div>
+
+
 			</div>
 			<div class="col-sm-1">
 			</div>

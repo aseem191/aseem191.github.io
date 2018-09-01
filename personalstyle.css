@@ -11,11 +11,22 @@
 
 #aboutme{
 	position: absolute;
-	top: 130vh;
+	top: 100vh;
 }
 
 
 #projects{
 	position: absolute;
 	top: 300vh;
+}
+
+
+#personalinfo{
+	position: absolute;
+	top: 600vh;
+}
+
+#resume{
+	position: absolute;
+	top: 700vh;
 }
