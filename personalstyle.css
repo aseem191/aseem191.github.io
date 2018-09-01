@@ -10,6 +10,7 @@
 	background-color: #c6c6c6;
 	font-family: 'Oxygen', sans-serif;
 	font-size: 21px;
+	border-radius: 5px;
 }
 
 .mainlink:hover{
