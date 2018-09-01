@@ -49,11 +49,6 @@ p{
 	font-family: 'Fira Sans', sans-serif;
 }
 
-h1{
+h1, h2{
 	font-family: 'Patua One', cursive;
-}
-
-h2{
-	font-family: 'Prompt', sans-serif;
-	font-weight: bold;
 }
