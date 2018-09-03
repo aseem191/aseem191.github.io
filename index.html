@@ -19,9 +19,15 @@
 			var triggeredProjects = false;
 			var triggeredPersonalInfo = false;
 			var triggeredResume = false;
+			var triggerAboutMeHeight = $("#aboutme").position().top;
+			var triggerProjectsHeight = $("#projects").position().top + 200;
+			var triggerPersonalInfoHeight = $("#personalinfo").position().top;
+			var triggerResumeHeight = $("#resume").position().top;
 
 			$("html, body").bind("scroll mousedown DOMMouseScroll mousewheel keyup", function(){
-				buttonPressed = false;
+				if(buttonPressed == true){
+					buttonPressed = false;
+				}
 				$('html, body').stop();
 			});
 
@@ -40,7 +46,8 @@
 					scrollTop: $($(this).data("tolink")).offset().top
 				}, 1500, function(){
 					buttonPressed = false;
-					$("#fixedDiv").css({top: $(window).scrollTop()});
+					$("#fixedDiv").stop();
+					$("#fixedDiv").animate({top: $(window).scrollTop()}, 800);
 				});
 				return false;
 			});
@@ -51,40 +58,40 @@
 					scrollTop: $("#greeting").offset().top
 				}, 1500, function(){
 					buttonPressed = false;
-					$("#fixedDiv").css({top: $(window).scrollTop()});
+					$("#fixedDiv").stop();
+					$("#fixedDiv").animate({top: $(window).scrollTop()}, 800);
 				});
 				return false;
 			});
 
 			$(window).scroll(function() {
-				var triggerAboutMeHeight = $("#aboutme").position().top;
-				var triggerProjectsHeight = $("#projects").position().top + 200;
-				var triggerPersonalInfoHeight = $("#personalinfo").position().top;
-				var triggerResumeHeight = $("#resume").position().top;
-
-				if (triggeredAboutMe == false && $(window).scrollTop() >= triggerAboutMeHeight) {
-					triggeredAboutMe = true;
-					$('#aboutme').css('visibility', 'visible').hide().fadeIn(800);
-				}
-
-				if (triggeredProjects == false && $(window).scrollTop() >= triggerProjectsHeight) {
-					triggeredProjects = true;
-					$('#projects').css('visibility', 'visible').hide().fadeIn(800);
-				}
-
-				if (triggeredPersonalInfo == false && $(window).scrollTop() >= triggerPersonalInfoHeight) {
-					triggeredPersonalInfo = true;
-					$('#personalinfo').css('visibility', 'visible').hide().fadeIn(800);
-				}
-
-				if (triggeredResume == false && $(window).scrollTop() >= triggerResumeHeight) {
-					triggeredResume = true;
-					$('#resume').css('visibility', 'visible').hide().fadeIn(800);
-				}
-
 				if(!buttonPressed){
-					$("#fixedDiv").css({top: $(window).scrollTop()});
+					$("#fixedDiv").stop();
+					$("#fixedDiv").animate({top: $(window).scrollTop()}, 800);
 				}
+
+				if(!(triggeredAboutMe && triggeredProjects && triggeredPersonalInfo && triggeredResume)){
+					if (triggeredAboutMe == false && $(window).scrollTop() >= triggerAboutMeHeight) {
+						triggeredAboutMe = true;
+						$('#aboutme').css('visibility', 'visible').hide().fadeIn(800);
+					}
+
+					if (triggeredProjects == false && $(window).scrollTop() >= triggerProjectsHeight) {
+						triggeredProjects = true;
+						$('#projects').css('visibility', 'visible').hide().fadeIn(800);
+					}
+
+					if (triggeredPersonalInfo == false && $(window).scrollTop() >= triggerPersonalInfoHeight) {
+						triggeredPersonalInfo = true;
+						$('#personalinfo').css('visibility', 'visible').hide().fadeIn(800);
+					}
+
+					if (triggeredResume == false && $(window).scrollTop() >= triggerResumeHeight) {
+						triggeredResume = true;
+						$('#resume').css('visibility', 'visible').hide().fadeIn(800);
+					}
+				}
+				
 			});
   		})
 	</script>
@@ -94,7 +101,7 @@
 	<div class="container-fluid" style="text-align: center">
 		<div class="row h-100">
 			<div class="col-sm-2" style="background-color: #000000;">
-				<div id="fixedDiv" style="position: absolute; margin-left: auto; margin-right: auto; left: 10px; right: 10px;">
+				<div id="fixedDiv" class="row" style="position: absolute; margin-left: auto; margin-right: auto; left: 10px; right: 10px;"><div class="col-sm">
 					<br><br>
 					<h1 style="color: white" id="aseemsane" class="mainlink">ASEEM SANE</h1>
 					<br><br><br>
@@ -113,7 +120,7 @@
 					<div class="mylink" data-tolink="#resume">
 						<p style="padding-top: 15px;">Resume</p>
 					</div>
-				</div>
+				</div></div>
 			</div>
 			<div class="col-sm-10">
 
