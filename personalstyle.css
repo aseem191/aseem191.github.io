@@ -17,26 +17,9 @@
 	cursor: pointer; 
 }
 
-#aboutme{
+#overallDiv{
 	position: absolute;
 	top: 110vh;
-}
-
-
-#projects{
-	position: absolute;
-	top: 250vh;
-}
-
-
-#personalinfo{
-	position: absolute;
-	top: 700vh;
-}
-
-#resume{
-	position: absolute;
-	top: 800vh;
 }
 
 #aseemsane{
