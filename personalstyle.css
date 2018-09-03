@@ -17,13 +17,17 @@
 	cursor: pointer; 
 }
 
+.imglink:hover{
+	opacity: 0.8;
+}
+
 #overallDiv{
 	position: absolute;
 	top: 110vh;
 }
 
 #aseemsane{
-	font-family: 'Salsa', cursive;
+	font-family: 'Exo', sans-serif;
 	font-size: 52px;
 	font-weight: bold;
 }

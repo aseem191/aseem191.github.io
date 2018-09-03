@@ -7,9 +7,10 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
-	<link href="https://fonts.googleapis.com/css?family=Oleo+Script|Oxygen|Patua+One|Prompt|Fira+Sans|Salsa" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Oleo+Script|Oxygen|Patua+One|Prompt|Fira+Sans|Salsa|Exo" rel="stylesheet">
 
 	<link rel="stylesheet" href="personalstyle.css">
+	<link rel="shortcut icon" type="image/png" href="gimpdonut.png"/>
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script>
@@ -19,10 +20,10 @@
 			var triggeredProjects = false;
 			var triggeredPersonalInfo = false;
 			var triggeredResume = false;
-			var triggerAboutMeHeight = $("#aboutme").position().top;
-			var triggerProjectsHeight = $("#projects").position().top + 200;
-			var triggerPersonalInfoHeight = $("#personalinfo").position().top;
-			var triggerResumeHeight = $("#resume").position().top;
+			var triggerAboutMeHeight = $("#aboutme").position().top + 200;
+			var triggerProjectsHeight = $("#projects").position().top + 300;
+			var triggerPersonalInfoHeight = $("#personalinfo").position().top + 200;
+			var triggerResumeHeight = $("#resume").position().top + 200;
 
 			$("html, body").bind("scroll mousedown DOMMouseScroll mousewheel keyup", function(){
 				if(buttonPressed == true){
@@ -37,8 +38,7 @@
 	  		$('#personalinfo').css('visibility', 'hidden');
 	  		$('#resume').css('visibility', 'hidden');
 
-	  		$("#greeting").animate({ opacity: 0 }, 0);
-	  		$("#greeting").slideDown(0).animate({ opacity: 1 }, { duration: 600, queue: false });
+	  		$('#greeting').css('visibility', 'visible').hide().fadeIn(800);
 
 	  		$(".mylink").click(function() {
 	  			buttonPressed = true;
@@ -96,7 +96,7 @@
   		})
 	</script>
 </head>
-<body style="background-color: #f4f4f4; height: calc(110% + 4600px);">
+<body style="background-color: #f4f4f4; height: calc(110% + 5000px);">
 	
 	<div class="container-fluid" style="text-align: center">
 		<div class="row h-100">
@@ -114,7 +114,7 @@
 					</div>
 					<br>
 					<div class="mylink" data-tolink="#personalinfo">
-						<p style="padding-top: 15px;">Personal Info</p>
+						<p style="padding-top: 15px;">Contact Me</p>
 					</div>
 					<br>
 					<div class="mylink" data-tolink="#resume">
@@ -124,7 +124,7 @@
 			</div>
 			<div class="col-sm-10">
 
-				<div id="greeting" class="row"><div class="col-sm">
+				<div id="greeting" class="row" style="background-color: #f4f4f4;"><div class="col-sm">
 					<br><br><br><br><br><br>
 					<h1 style="font-size: 52px">Hello! I'm Aseem.</h1>
 					<br><br><br>
@@ -133,12 +133,12 @@
 
 				<div id="overallDiv" class="row"><div class="col-sm">
 
-				<div id="aboutme" class="row" style="background-color: #ffffff;"><div class="col-sm">
+				<div class="row" style="background-color: #ffffff;"><div class="col-sm" id="aboutme">
 					<br><br><br>
-					<h1>About Me</h1>
+					<h1>A Little Bit About Me</h1>
 					<br><br><br>
 					<p style="padding-left: 60px; padding-right: 60px;">
-					I'm an undergraduate student at UCLA studying Computer Science and Engineering. I love computer science because it provides me with many fulfilling experiences and avenues for creativity - whether I am creating or contributing to an application, finally surmounting a technical challenge that I've been hammering at for days, or learning a new concept that gets me ever closer to understanding just how these machines work. I enjoy immersing myself in the world of computers, and I am excited to see what the future of computing will hold.
+					I'm an undergraduate student at UCLA studying Computer Science and Engineering. To me, computer science always holds many fulfilling experiences and avenues for creativity - whether I am creating or contributing to an application, finally surmounting a technical challenge that I've been hammering at for days, or learning a new concept that gets me ever closer to understanding just how these machines work. I enjoy immersing myself in the world of computers, and I am excited to see what the future of computing will hold.
 					<br><br><br>
 					I am currently working on growing my full stack skills through my various projects. Outside the realm of computer science, I enjoy playing video games, listening to all sorts of music, playing the tabla (a type of hand drum), creating interesting recipes, juggling, and daydreaming.
 					</p>
@@ -146,16 +146,16 @@
 				</div></div>
 
 
-				<div id="projects" class="row" style="padding-left: 60px; padding-right: 60px; background-color: #f4f4f4;"><div class="col-sm">
+				<div id="projects" class="row" style="padding-left: 60px; padding-right: 60px; background-color: #f4f4f4;"><div class="col-sm" id="projects">
 					<br><br><br><br>
 					<h1>My Projects</h1>
 					<br><br><br>
 					<div class="row">
 						<div class="col-md" style="text-align: center">
 							<h2>Fridgehunters</h2><br>
-							<img src="fridgehunters.PNG" height="200px" style="border-radius: 15px;">
+							<a href="https://fridgehunters.now.sh/"><img class="imglink" src="fridgehunters.PNG" height="200px" style="border-radius: 15px;"></a>
 							<p><br>
-								Fridgehunters allows users to find recipes easily by listing ingredients that they have in their fridge! The app can be found at <a href="https://fridgehunters.now.sh/">fridgehunters.now.sh</a>.<br><br>
+								Fridgehunters allows users to find recipes easily by listing ingredients that they have in their fridge! The app can be found <a href="https://fridgehunters.now.sh/">here</a>.<br><br>
 								The app features an ingredient search system, a recipe search system based on ingredients, and an endorsement and popularity system for recipes. For this app, I developed an Express.js REST API backend with an SQL database and a React frontend.
 							</p>
 						</div>
@@ -163,9 +163,9 @@
 						</div>
 						<div class="col-md" style="text-align: center">
 							<h2>Quoridor React</h2><br>
-							<img src="quoridorreact.PNG" height="200px" style="border-radius: 15px;">
+							<a href="https://reactquoridor.now.sh/"><img class="imglink" src="quoridorreact.PNG" height="200px" style="border-radius: 15px;"></a>
 							<p><br>
-								Quoridor React is a recreation of the board game Quoridor as an online multiplayer game, with a strategy uncovering twist! The game can be found at <a href="https://reactquoridor.now.sh/">reactquoridor.now.sh</a>.<br><br>
+								Quoridor React is a recreation of the board game Quoridor as an online multiplayer game, with a strategy uncovering twist! The game can be found <a href="https://reactquoridor.now.sh/">here</a>.<br><br>
 								The game features client-side game UI and display, server-side game management, and automatic detection of strategies that the other player may be trying to use. I developed this app using an Express.js REST API backend with a MongoDB database and a React frontend with Redux state management.
 							</p>
 
@@ -175,9 +175,9 @@
 					<div class="row">
 						<div class="col-md" style="text-align: center">
 							<h2>Now Where Was I?</h2><br>
-							<img src="nowwherewasi.PNG" height="200px" style="border-radius: 15px;">
+							<a href="https://aseem191.github.io/Now-Where-Was-I/"><img class="imglink" src="nowwherewasi.PNG" height="200px" style="border-radius: 15px;"></a>
 							<p><br>
-								Now Where Was I? is an app designed to help those who have entered a new room and suddenly forgotten what they were going to do. The app can be found at <a href="https://aseem191.github.io/Now-Where-Was-I/">aseem191.github.io/Now-Where-Was-I</a>.<br><br>
+								Now Where Was I? is an app designed to help those who have entered a new room and suddenly forgotten what they were going to do. The app can be found <a href="https://aseem191.github.io/Now-Where-Was-I/">here</a>.<br><br>
 								The app features searching for and creation of realizations based on time and place. I built this app using jQuery for the frontend and the Spring Boot model/controller framework in Java for the backend, with a PostgreSQL database.
 							</p>
 						</div>
@@ -185,7 +185,7 @@
 						</div>
 						<div class="col-md" style="text-align: center">
 							<h2>Foodmeet</h2><br>
-							<img src="foodmeet.PNG" height="200px" style="border-radius: 15px;">
+							<a href="https://github.com/aseem191/Foodmeet"><img class="imglink" src="foodmeet.PNG" height="200px" style="border-radius: 15px;"></a>
 							<p><br>
 								This Android app is built to allow people decide where they want to eat, and with whom. The repository for this app can be found <a href="https://github.com/aseem191/Foodmeet">here</a>.<br><br>
 								The app features user creation, user schedules and timing, user groups, user decision on which group they want to eat with, and group voting on which place to eat at. I developed this app using Android Studio in Java, and built the backend API using Express.js, with an SQL database.
@@ -197,7 +197,7 @@
 					<div class="row">
 						<div class="col-md" style="text-align: center">
 							<h2>Rocket Project at UCLA</h2><br>
-							<img src="interfacebox.jpg" height="200px" style="border-radius: 15px;">
+							<a href="http://rocketproject.seas.ucla.edu/"><img class="imglink" src="interfacebox.jpg" height="200px" style="border-radius: 15px;"></a>
 							<p>
 							<br>I work on the electronics team as part of the communications sub-team. I have worked with the Python data visualization libraries,
 							 TCP and UDP connections, Raspberry Pis, and radios. The team website is located <a href="http://rocketproject.seas.ucla.edu/">here</a>.</p>
@@ -206,7 +206,7 @@
 						</div>
 						<div class="col-md" style="text-align: center">
 							<h2>ThinkTank</h2><br>
-							<img src="thinktankscreen.PNG" height="200px" style="border-radius: 15px;">
+							<a href="https://github.com/aseem191/thinktankunitygame"><img class="imglink" src="thinktankscreen.PNG" height="200px" style="border-radius: 15px;"></a>
 							<p><br>This game is made in Unity, and involves survival against waves of enemies that increase in number. You can find the game <a href="https://github.com/aseem191/thinktankunitygame">here.</a></p>
 
 						</div>
@@ -228,26 +228,29 @@
 				</div></div>
 
 
-				<div id="personalinfo" class="row" style="background-color: #ffffff;"><div class="col-sm">
-					<br><br><br><br><br><br>
-					<h1>My Personal Information</h1>
+				<div class="row" style="background-color: #ffffff;"><div class="col-sm" id="personalinfo">
+					<br><br><br><br>
+					<h1>Contact Me</h1>
 					<br><br><br>
-					<p style="padding-left: 45px; padding-right: 45px; font-size: 18px">
-					<b>Email:</b> <a href="mailto:aseem.adm@gmail.com">aseem.adm@gmail.com</a>
-					<br><br>
-					<b>GitHub:</b> <a href="https://github.com/aseem191">aseem191</a>
-					<br><br>
-					<b>LinkedIn:</b> <a href="https://www.linkedin.com/in/aseem-sane/">Aseem Sane</a>
-					<br><br></p>
-					<br><br><br><br><br><br>
+					<div class="row">
+					<div class="col-md-4"></div>
+					<div class="col-md"><a href="mailto:aseem.adm@gmail.com"><img class="imglink" src="emailicon.svg" height="75px"></a></div>
+					
+					<div class="col-md"><a href="https://github.com/aseem191"><img class="imglink" src="githubicon.svg" height="75px"></a></div>
+					
+					<div class="col-md"><a href="https://www.linkedin.com/in/aseem-sane/"><img class="imglink" src="linkedinicon.svg" height="75px"></a></div>
+					<div class="col-md-4"></div>
+					</div>
+
+					<br><br><br><br><br>
 				</div></div>
 
-				<div id="resume" class="row" style="background-color: #f4f4f4;"><div class="col-sm">
+				<div class="row" style="background-color: #f4f4f4;"><div class="col-sm" id="resume">
 					<br><br><br><br><br>
 					<h1>My Resume</h1>
 					<br>
 					<p>
-						<object data="Aseemresumeyear2.pdf" type="application/pdf" style="width: 700px; height: 900px;">
+						<object data="Aseemresumeyear2.pdf" type="application/pdf" style="width: 700px; height: 950px;">
 						</object>
 						<br>
 						<a href="Aseemresumeyear2.pdf">Link to my resume</a>
