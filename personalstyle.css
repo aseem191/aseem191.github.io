@@ -24,6 +24,8 @@
 #overallDiv{
 	position: absolute;
 	top: 110vh;
+	right: 15;
+	left: 15;
 }
 
 #aseemsane{
@@ -38,4 +40,8 @@ p{
 
 h1, h2{
 	font-family: 'Patua One', cursive;
+}
+
+html, body{
+	height: 100%;
 }
