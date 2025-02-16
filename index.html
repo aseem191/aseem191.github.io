@@ -1,0 +1,295 @@
+<html>
+
+<head>
+	<title>Aseem Sane</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+	<link href="https://fonts.googleapis.com/css?family=Oleo+Script|Oxygen|Patua+One|Prompt|Fira+Sans|Salsa|Exo" rel="stylesheet">
+
+	<link rel="stylesheet" href="personalstyle.css">
+	<link rel="shortcut icon" type="image/png" href="gimpdonut.png"/>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script>
+		$(document).ready(function(){
+			var buttonPressed = false;
+			var triggeredAboutMe = false;
+			var triggeredProjects = false;
+			var triggeredPersonalInfo = false;
+			var triggeredExperience = false;
+			var triggeredResume = false;
+			var triggerAboutMeHeight = $("#aboutme").position().top + 200;
+			var triggerExperienceHeight = $("#experience").position().top + 300;
+			var triggerProjectsHeight = $("#projects").position().top + 300;
+			var triggerPersonalInfoHeight = $("#personalinfo").position().top + 200;
+			var triggerResumeHeight = $("#resume").position().top + 200;
+
+			$("html, body").bind("scroll mousedown DOMMouseScroll mousewheel keyup", function(){
+				if(buttonPressed == true){
+					buttonPressed = false;
+				}
+				$('html, body').stop();
+			});
+
+	  		$("#greeting").hide();
+	  		$('#aboutme').css('visibility', 'hidden');
+	  		$('#projects').css('visibility', 'hidden');
+	  		$('#experience').css('visibility', 'hidden');
+	  		$('#personalinfo').css('visibility', 'hidden');
+	  		$('#resume').css('visibility', 'hidden');
+
+	  		$('#greeting').css('visibility', 'visible').hide().fadeIn(800);
+
+	  		$(".mylink").click(function() {
+	  			buttonPressed = true;
+	  			$([document.documentElement, document.body]).animate({
+					scrollTop: $($(this).data("tolink")).offset().top
+				}, 1500, function(){
+					buttonPressed = false;
+					$("#fixedDiv").stop();
+					$("#fixedDiv").animate({top: $(window).scrollTop()}, 800);
+				});
+				return false;
+			});
+
+			$(".mainlink").click(function() {
+	  			buttonPressed = true;
+	  			$([document.documentElement, document.body]).animate({
+					scrollTop: $("#greeting").offset().top
+				}, 1500, function(){
+					buttonPressed = false;
+					$("#fixedDiv").stop();
+					$("#fixedDiv").animate({top: $(window).scrollTop()}, 800);
+				});
+				return false;
+			});
+
+			$(window).scroll(function() {
+				if(!buttonPressed){
+					$("#fixedDiv").stop();
+					$("#fixedDiv").animate({top: $(window).scrollTop()}, 800);
+				}
+
+				if(!(triggeredAboutMe && triggeredProjects && triggeredPersonalInfo && triggeredExperience && triggeredResume)){
+					if (triggeredAboutMe == false && $(window).scrollTop() >= triggerAboutMeHeight) {
+						triggeredAboutMe = true;
+						$('#aboutme').css('visibility', 'visible').hide().fadeIn(800);
+					}
+
+					if (triggeredExperience == false && $(window).scrollTop() >= triggerExperienceHeight) {
+						triggeredExperience = true;
+						$('#experience').css('visibility', 'visible').hide().fadeIn(800);
+					}
+
+					if (triggeredProjects == false && $(window).scrollTop() >= triggerProjectsHeight) {
+						triggeredProjects = true;
+						$('#projects').css('visibility', 'visible').hide().fadeIn(800);
+					}
+
+					if (triggeredPersonalInfo == false && $(window).scrollTop() >= triggerPersonalInfoHeight) {
+						triggeredPersonalInfo = true;
+						$('#personalinfo').css('visibility', 'visible').hide().fadeIn(800);
+					}
+
+					if (triggeredResume == false && $(window).scrollTop() >= triggerResumeHeight) {
+						triggeredResume = true;
+						$('#resume').css('visibility', 'visible').hide().fadeIn(800);
+					}
+				}
+				
+			});
+  		})
+	</script>
+</head>
+<body style="background-image: url('bgimage.jpg'); background-size: 100%; background-repeat: no-repeat; background-color: #f4f4f4; height: calc(100% + 5750px);">
+	
+	<div class="container-fluid" style="text-align: center">
+		<div class="row h-100">
+			<div class="col-sm-2" style="background-color: #000000;">
+				<div id="fixedDiv" class="row" style="position: absolute; margin-left: auto; margin-right: auto; left: 10px; right: 10px;"><div class="col-sm">
+					<br><br>
+					<h1 style="color: white" id="aseemsane" class="mainlink">ASEEM SANE</h1>
+					<br><br><br>
+					<div class="mylink" data-tolink="#aboutme">
+						<p style="padding-top: 15px;">About Me</p>
+					</div>
+					<br>
+					<div class="mylink" data-tolink="#experience">
+						<p style="padding-top: 15px;">Experience</p>
+					</div>
+					<br>
+					<div class="mylink" data-tolink="#projects">
+						<p style="padding-top: 15px;">Projects</p>
+					</div>
+					<br>
+					<div class="mylink" data-tolink="#personalinfo">
+						<p style="padding-top: 15px;">Contact Me</p>
+					</div>
+					<br>
+					<div class="mylink" data-tolink="#resume">
+						<p style="padding-top: 15px;">Resume</p>
+					</div>
+				</div></div>
+			</div>
+			<div class="col-sm-10">
+
+				<div id="greeting" class="row"><div class="col-sm">
+					<br><br><br><br><br><br>
+					<h1 style="font-size: 52px; color: #424242;">Hello! I'm Aseem.</h1>
+					<br><br><br>
+					<img src="picofme.PNG" height="250px" style="border-radius: 10px;">
+				</div></div>
+
+				<div id="overallDiv" class="row"><div class="col-sm">
+
+				<div class="row" style="background-color: #f4f4f4;"><div class="col-sm" id="aboutme">
+					<br><br><br><br><br>
+					<h1>A Little Bit About Me</h1>
+					<br><br><br>
+					<p style="padding-left: 60px; padding-right: 60px;">
+					I am a Software Engineer with experience in distributed systems and storage services. Previously, I was an undergraduate student at UCLA. I enjoy immersing myself in the world of computers and the opportunities for learning and creativity that they provide, and I am excited to see what the future of computing will hold.
+					<br><br>
+					Outside the realm of computer science, I enjoy listening to all sorts of music, playing video games, staying active with tennis or rock climbing, playing instruments, and driving cars.
+					</p>
+					<br><br><br><br><br><br>
+				</div></div>
+
+				<div class="row" style="background-color: #ffffff;"><div class="col-sm" id="experience">
+					<br><br><br><br><br>
+					<h1>Work Experience</h1>
+					<br><br><br>
+					<div class="row">
+						<div class="col-md-3" style="text-align: center">
+						</div>
+						<div class="col-md" style="text-align: center">
+							<h2>Software Engineer at Meta</h2><br>
+							<a href="https://about.meta.com/"><img class="imglink" src="metalogo.PNG" height="200px" style="border-radius: 15px;"></a>
+							<p><br>As a part of the Messaging Infrastructure: Storage team, I developed distributed persistent storage systems at the heart of Messenger, Instagram Direct, as well as all of their use cases, including end-to-end encryption and GenAI chats. I headed projects to improve attribution for MW-scale capacity savings, developed new real-time storage systems, and managed operations and on-call for storage services.</p>
+						</div>
+						<div class="col-md-3" style="text-align: center">
+						</div>
+					</div>
+					<br><br><br>
+					<div class="row">
+						<div class="col-md" style="text-align: center">
+							<h2>Software Engineering Intern at FB</h2><br>
+							<a href="https://www.facebook.com/"><img class="imglink" src="fblogo.jpg" height="200px" style="border-radius: 15px;"></a>
+							<p><br>As a Software Engineering Intern at Facebook, I developed search result blending models to combine products across different search verticals. I also developed pipelines to gather and analyze structured data for blending models and ran experiments for user engagement.</p>
+						</div>
+						<div class="col-md-1" style="text-align: center">
+						</div>
+						<div class="col-md" style="text-align: center">
+							<h2>Software Developer Intern at IBM</h2><br>
+							<a href="https://www.ibm.com/"><img class="imglink" src="ibmlogo.PNG" height="200px" style="border-radius: 15px;"></a>
+							<p><br>As a Software Developer Intern at IBM, I developed policy controllers to monitor and enforce security compliance and encryption for Kubernetes clusters. I also deployed policy controllers as containerized software to work across Red Hat clusters.</p>
+
+						</div>
+					</div>
+					<br><br><br><br><br><br>
+				</div></div>
+
+
+				<div class="row" style="padding-left: 60px; padding-right: 60px; background-color: #f4f4f4;"><div class="col-sm" id="projects">
+					<br><br><br><br>
+					<h1>My Projects</h1>
+					<br><br><br>
+					<div class="row">
+						<div class="col-md" style="text-align: center">
+							<h2>Fridgehunters</h2><br>
+							<a href="https://fridgehunters.now.sh/"><img class="imglink" src="fridgehunters.PNG" height="200px" style="border-radius: 15px;"></a>
+							<p><br>
+								Fridgehunters allows users to find recipes easily by listing ingredients that they have in their fridge! The repository for the app can be found <a href="https://github.com/aseem191/Fridgehunters">here</a>.<br><br>
+								The app features an ingredient search system, a recipe search system based on ingredients, and an endorsement and popularity system for recipes. For this app, I developed an Express.js REST API backend with an SQL database and a React frontend.
+							</p>
+						</div>
+						<div class="col-md-1" style="text-align: center">
+						</div>
+						<div class="col-md" style="text-align: center">
+							<h2>Quoridor React</h2><br>
+							<a href="https://reactquoridor.now.sh/"><img class="imglink" src="quoridorreact.PNG" height="200px" style="border-radius: 15px;"></a>
+							<p><br>
+								Quoridor React is a recreation of the board game Quoridor as an online multiplayer game, with a strategy uncovering twist! The repository for the game can be found <a href="https://github.com/aseem191/Quoridor-React">here</a>.<br><br>
+								The game features client-side game UI and display, server-side game management, and automatic detection of strategies that the other player may be trying to use. I developed this app using an Express.js REST API backend with a MongoDB database and a React frontend with Redux state management.
+							</p>
+
+						</div>
+					</div>
+					<br><br><br>
+					<div class="row">
+						<div class="col-md" style="text-align: center">
+							<h2>Now Where Was I?</h2><br>
+							<a href="https://aseem191.github.io/Now-Where-Was-I/"><img class="imglink" src="nowwherewasi.PNG" height="200px" style="border-radius: 15px;"></a>
+							<p><br>
+								Now Where Was I? is an app designed to help those who have entered a new room and suddenly forgotten what they were going to do. The repository for the app can be found <a href="https://github.com/aseem191/Now-Where-Was-I">here</a>.<br><br>
+								The app features searching for and creation of realizations based on time and place. I built this app using jQuery for the frontend and the Spring Boot model/controller framework in Java for the backend, with a PostgreSQL database.
+							</p>
+						</div>
+						<div class="col-md-1" style="text-align: center">
+						</div>
+						<div class="col-md" style="text-align: center">
+							<h2>Foodmeet</h2><br>
+							<a href="https://github.com/aseem191/Foodmeet"><img class="imglink" src="foodmeet.PNG" height="200px" style="border-radius: 15px;"></a>
+							<p><br>
+								This Android app is built to allow people decide where they want to eat, and with whom. The repository for the app can be found <a href="https://github.com/aseem191/Foodmeet">here</a>.<br><br>
+								The app features user creation, user schedules and timing, user groups, user decision on which group they want to eat with, and group voting on which place to eat at. I developed this app using Android Studio in Java, and built the backend API using Express.js, with an SQL database.
+							</p>
+
+						</div>
+					</div>
+					<br><br><br>
+					<div class="row">
+						<div class="col-md-3" style="text-align: center">
+						</div>
+						<div class="col-md" style="text-align: center">
+							<h2>Automobile Autofinder</h2><br>
+							<a href="https://github.com/aseemucla/Automobile-Autofinder"><img class="imglink" src="automobileautofinder.PNG" height="200px" style="border-radius: 15px;"></a>
+							<p><br>Automobile Autofinder is a convolutional neural network project to identify cars in pictures. The dataset involves pictures of 3 different types of cars. The project uses Keras, matplotlib, and a Python script that generates and stores arrays from multiple pictures. You can find the repository for the project <a href="https://github.com/aseemucla/Automobile-Autofinder">here.</a></p>
+						</div>
+						<div class="col-md-3" style="text-align: center">
+						</div>
+					</div>
+					<br><br><br>
+				</div></div>
+
+
+				<div class="row" style="background-color: #ffffff;"><div class="col-sm" id="personalinfo">
+					<br><br><br><br>
+					<h1>Contact Me</h1>
+					<br><br><br>
+					<div class="row">
+					<div class="col-md-4"></div>
+					<div class="col-md"><div class="row">
+						<div class="col-md"><a href="mailto:aseem.adm@gmail.com"><img class="imglink" src="emailicon.svg" height="75px"></a></div>
+						
+						<div class="col-md"><a href="https://github.com/aseem191"><img class="imglink" src="githubicon.svg" height="75px"></a></div>
+						
+						<div class="col-md"><a href="https://www.linkedin.com/in/aseem-sane/"><img class="imglink" src="linkedinicon.svg" height="75px"></a></div>
+					</div></div>
+					<div class="col-md-4"></div>
+					</div>
+
+					<br><br><br><br><br>
+				</div></div>
+
+				<div class="row" style="background-color: #f4f4f4;"><div class="col-sm" id="resume">
+					<br><br><br><br><br>
+					<h1>My Resume</h1>
+					<br>
+					<p>
+						<object data="Aseemresume.pdf" type="application/pdf" style="width: 700px; height: 950px;">
+						</object>
+						<br>
+						<a href="Aseemresume.pdf">Link to my resume</a>
+					</p>
+				</div></div>
+
+				</div></div>
+			</div>
+		</div>
+		
+	</div>
+</body>
+</html>

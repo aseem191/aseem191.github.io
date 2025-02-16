@@ -1,0 +1,47 @@
+.mylink:hover{
+	background-color: #e2e2e2;
+	cursor: pointer; 
+}
+
+
+.mylink{
+	height: 60px;
+	width: 100%;
+	background-color: #c6c6c6;
+	font-family: 'Oxygen', sans-serif;
+	font-size: 21px;
+	border-radius: 5px;
+}
+
+.mainlink:hover{
+	cursor: pointer; 
+}
+
+.imglink:hover{
+	opacity: 0.8;
+}
+
+#overallDiv{
+	position: absolute;
+	top: 100vh;
+	right: 15;
+	left: 15;
+}
+
+#aseemsane{
+	font-family: 'Exo', sans-serif;
+	font-size: 52px;
+	font-weight: bold;
+}
+
+p{
+	font-family: 'Fira Sans', sans-serif;
+}
+
+h1, h2{
+	font-family: 'Patua One', cursive;
+}
+
+html, body{
+	height: 100%;
+}
